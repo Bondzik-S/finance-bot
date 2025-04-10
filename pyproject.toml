@@ -5,14 +5,56 @@ description = ""
 authors = [
     {name = "Bondzik-S",email = "bondziks@gmail.com"}
 ]
-readme = "README.md"
-requires-python = ">=3.12"
-dependencies = [
-    "aiogram (>=3.18.0,<4.0.0)",
-    "python-dotenv (>=1.0.1,<2.0.0)"
-]
+#readme = "README.md"
+#requires-python = ">=3.12"
+#dependencies = [
+#    "aiogram (>=3.18.0,<4.0.0)",
+#    "python-dotenv (>=1.0.1,<2.0.0)"
+#]
+
+[tool.poetry]
+package-mode = false
+
+
+[tool.poetry.dependencies]
+python = "^3.12"
+aiogram = "^3.19.0"
+python-dotenv = "^1.1.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.9.4"
 
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "N",  # PEP8 naming convetions
+    "D"  # pydocstyle
+]
+ignore = [
+    "C901",  # too complex
+    "W191",  # indentation contains tabs
+    "D",  # pydocstyle
+    "F401",
+    "B904",
+    "N802",
+    "B008",
+    "F821",
+    "I001",
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
